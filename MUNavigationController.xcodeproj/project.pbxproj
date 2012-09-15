@@ -19,6 +19,8 @@
 		8C2A80741604F96600DBF0DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A80721604F96600DBF0DB /* MainStoryboard.storyboard */; };
 		8C2A80771604F96600DBF0DB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80761604F96600DBF0DB /* MasterViewController.m */; };
 		8C2A807A1604F96600DBF0DB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80791604F96600DBF0DB /* DetailViewController.m */; };
+		8C2A80841604F9CB00DBF0DB /* AnimationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */; };
+		8C2A80851604F9CB00DBF0DB /* MUNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		8C2A80761604F96600DBF0DB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		8C2A80781604F96600DBF0DB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8C2A80791604F96600DBF0DB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8C2A80801604F9CB00DBF0DB /* AnimationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationListCell.h; sourceTree = "<group>"; };
+		8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationListCell.m; sourceTree = "<group>"; };
+		8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUNavigationController.m; sourceTree = "<group>"; };
+		8C2A80831604F9CB00DBF0DB /* MUNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUNavigationController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 		8C2A80601604F96600DBF0DB /* MUNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A80801604F9CB00DBF0DB /* AnimationListCell.h */,
+				8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */,
+				8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */,
+				8C2A80831604F9CB00DBF0DB /* MUNavigationController.h */,
 				8C2A80691604F96600DBF0DB /* AppDelegate.h */,
 				8C2A806A1604F96600DBF0DB /* AppDelegate.m */,
 				8C2A80721604F96600DBF0DB /* MainStoryboard.storyboard */,
@@ -182,6 +192,8 @@
 				8C2A806B1604F96600DBF0DB /* AppDelegate.m in Sources */,
 				8C2A80771604F96600DBF0DB /* MasterViewController.m in Sources */,
 				8C2A807A1604F96600DBF0DB /* DetailViewController.m in Sources */,
+				8C2A80841604F9CB00DBF0DB /* AnimationListCell.m in Sources */,
+				8C2A80851604F9CB00DBF0DB /* MUNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

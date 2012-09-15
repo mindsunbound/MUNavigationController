@@ -1,8 +1,8 @@
 //
 //  DetailViewController.h
-//  MUNavigationController
+//  UIViewControllerAnimationExtensions
 //
-//  Created by Jonah Neugass on 9/15/12.
+//  Created by Jonah Neugass on 9/12/12.
 //  Copyright (c) 2012 Minds Unbound. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+- (IBAction)popView:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

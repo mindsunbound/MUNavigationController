@@ -10,4 +10,7 @@
 
 @interface MasterViewController : UITableViewController
 
+@property(nonatomic, strong) NSArray *animationTypeArray;
+@property(nonatomic, weak) MUNavigationController *muNavigationController;
+
 @end
