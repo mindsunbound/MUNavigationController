@@ -21,6 +21,8 @@
 		8C2A807A1604F96600DBF0DB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80791604F96600DBF0DB /* DetailViewController.m */; };
 		8C2A80841604F9CB00DBF0DB /* AnimationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */; };
 		8C2A80851604F9CB00DBF0DB /* MUNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */; };
+		8C974DB4160561EA00BCC1EF /* UIView+Origami.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C974DB2160561EA00BCC1EF /* UIView+Origami.m */; };
+		8C974DB71605650E00BCC1EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C974DB61605650E00BCC1EF /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,9 @@
 		8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationListCell.m; sourceTree = "<group>"; };
 		8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUNavigationController.m; sourceTree = "<group>"; };
 		8C2A80831604F9CB00DBF0DB /* MUNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUNavigationController.h; sourceTree = "<group>"; };
+		8C974DB2160561EA00BCC1EF /* UIView+Origami.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Origami.m"; sourceTree = "<group>"; };
+		8C974DB3160561EA00BCC1EF /* UIView+Origami.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Origami.h"; sourceTree = "<group>"; };
+		8C974DB61605650E00BCC1EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C974DB71605650E00BCC1EF /* QuartzCore.framework in Frameworks */,
 				8C2A805B1604F96600DBF0DB /* UIKit.framework in Frameworks */,
 				8C2A805D1604F96600DBF0DB /* Foundation.framework in Frameworks */,
 				8C2A805F1604F96600DBF0DB /* CoreGraphics.framework in Frameworks */,
@@ -65,6 +71,7 @@
 		8C2A804B1604F96600DBF0DB = {
 			isa = PBXGroup;
 			children = (
+				8C974DB61605650E00BCC1EF /* QuartzCore.framework */,
 				8C2A80601604F96600DBF0DB /* MUNavigationController */,
 				8C2A80591604F96600DBF0DB /* Frameworks */,
 				8C2A80571604F96600DBF0DB /* Products */,
@@ -92,10 +99,12 @@
 		8C2A80601604F96600DBF0DB /* MUNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				8C974DB3160561EA00BCC1EF /* UIView+Origami.h */,
+				8C974DB2160561EA00BCC1EF /* UIView+Origami.m */,
 				8C2A80801604F9CB00DBF0DB /* AnimationListCell.h */,
 				8C2A80811604F9CB00DBF0DB /* AnimationListCell.m */,
-				8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */,
 				8C2A80831604F9CB00DBF0DB /* MUNavigationController.h */,
+				8C2A80821604F9CB00DBF0DB /* MUNavigationController.m */,
 				8C2A80691604F96600DBF0DB /* AppDelegate.h */,
 				8C2A806A1604F96600DBF0DB /* AppDelegate.m */,
 				8C2A80721604F96600DBF0DB /* MainStoryboard.storyboard */,
@@ -194,6 +203,7 @@
 				8C2A807A1604F96600DBF0DB /* DetailViewController.m in Sources */,
 				8C2A80841604F9CB00DBF0DB /* AnimationListCell.m in Sources */,
 				8C2A80851604F9CB00DBF0DB /* MUNavigationController.m in Sources */,
+				8C974DB4160561EA00BCC1EF /* UIView+Origami.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +319,7 @@
 				8C2A807F1604F96600DBF0DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

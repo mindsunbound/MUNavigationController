@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS(NSInteger, MUViewAnimationTransitionType) {
-    MUViewAnimationTransitionTypeDefault         = 0 << 20,
-    MUViewAnimationTransitionTypeFlipFromLeft    = 1 << 20,
-    MUViewAnimationTransitionTypeFlipFromRight   = 2 << 20,
-    MUViewAnimationTransitionTypeCurlUp          = 3 << 20,
-    MUViewAnimationTransitionTypeCurlDown        = 4 << 20,
-    MUViewAnimationTransitionTypeCrossDissolve   = 5 << 20,
-    MUViewAnimationTransitionTypeFlipFromTop     = 6 << 20,
-    MUViewAnimationTransitionTypeFlipFromBottom  = 7 << 20,
-    MUViewAnimationTransitionTypeCustom          = 8 << 20,
-    MUViewAnimationTransitionTypeCustomFadeIn    = 9 << 20,
+    MUViewAnimationTransitionTypeDefault             = 0 << 20,
+    MUViewAnimationTransitionTypeFlipFromLeft        = 1 << 20,
+    MUViewAnimationTransitionTypeFlipFromRight       = 2 << 20,
+    MUViewAnimationTransitionTypeCurlUp              = 3 << 20,
+    MUViewAnimationTransitionTypeCurlDown            = 4 << 20,
+    MUViewAnimationTransitionTypeCrossDissolve       = 5 << 20,
+    MUViewAnimationTransitionTypeFlipFromTop         = 6 << 20,
+    MUViewAnimationTransitionTypeFlipFromBottom      = 7 << 20,
+    MUViewAnimationTransitionTypeCustom              = 8 << 20,
+    MUViewAnimationTransitionTypeCustomFadeIn        = 9 << 20,
+    MUViewAnimationTransitionTypeShowOrigamiFromLeft = 10 << 20,
+    MUViewAnimationTransitionTypeShowOrigamiFromRight= 11 << 20,
 };
 
 
@@ -41,6 +43,10 @@ typedef void (^MUAnimationCompletionBlock)(BOOL finished);
 
 -(void)pushViewController:(UIViewController *)viewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)customAnimationBlock;
 -(void)pushViewController:(UIViewController *)viewController animationDuration:(CGFloat)animationDuration animationTransitionType:(MUViewAnimationTransitionType)animationTransitionType;
+
+-(UIViewController *)popViewController:(UIViewController *)viewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)customAnimationBlock;
+-(UIViewController *)popViewController:(CGFloat)animationDuration animationTransitionType:(MUViewAnimationTransitionType)animationTransitionType;
+
 -(NSArray *)getAnimationTypeStrings;
 
 @end

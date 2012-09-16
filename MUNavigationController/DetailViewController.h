@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UITableViewController
 
-- (IBAction)popView:(id)sender;
+@property(nonatomic, strong) NSArray *animationTypeArray;
+@property(nonatomic, weak) MUNavigationController *muNavigationController;
 
 @end
