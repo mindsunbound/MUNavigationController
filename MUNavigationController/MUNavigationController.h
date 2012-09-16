@@ -23,9 +23,15 @@ typedef NS_OPTIONS(NSInteger, MUViewAnimationTransitionType) {
     MUViewAnimationTransitionTypeShowOrigamiFromRight= 11 << 20,
 };
 
+typedef NS_OPTIONS(NSInteger, MUNavigationActionType)
+{
+  MUNavigationActionTypePush,
+  MUNavigationActionTypePop,
+  MUNavigationActionTypePopToRootView,
+};
 
 
-typedef void (^MUCustomAnimationBlock)(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration);
+typedef void (^MUCustomAnimationBlock)(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration);
 typedef void (^MUAnimationCompletionBlock)(BOOL finished);
 
 @interface MUNavigationController : UINavigationController

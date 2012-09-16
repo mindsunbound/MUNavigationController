@@ -77,7 +77,7 @@
 
 -(void)pushViewController:(UIViewController *)viewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)customAnimationBlock
 {
-    customAnimationBlock(self.visibleViewController, viewController, animationDuration);
+    customAnimationBlock(self.visibleViewController, viewController, MUNavigationActionTypePush, animationDuration);
 }
 
 
@@ -87,20 +87,21 @@
     {
         if ( animationTransitionType == MUViewAnimationTransitionTypeCustom && _customPushTransitionBlock == nil)
         {
+            NSLog(@"There is no custom animation block set. Using standard transition");
             [super pushViewController:viewController animated:YES];
         }
-        if( animationTransitionType > MUViewAnimationTransitionTypeCustom )
+        else if( animationTransitionType > MUViewAnimationTransitionTypeCustom )
         {
             MUCustomAnimationBlock animationBlock = _customAnimationDictionary[@(animationTransitionType)];
-            [self animatePushTransitionWithAnimationOption:self.visibleViewController nextViewController:viewController animationDuration:animationDuration customAnimationBlock:animationBlock];
+            animationBlock(self.visibleViewController, viewController, MUNavigationActionTypePush, animationDuration);
         }
         else if ( animationTransitionType == MUViewAnimationTransitionTypeCustom && _customPushTransitionBlock != nil)
         {
-            [self animatePushTransitionWithAnimationOption:self.visibleViewController nextViewController:viewController animationDuration:animationDuration customAnimationBlock:_customPushTransitionBlock ];
+            _customPushTransitionBlock(self.visibleViewController, viewController, MUNavigationActionTypePush, animationDuration);
         }
         else
         {
-            [self animatePushTransitionWithAnimationOption:self.visibleViewController nextViewController:viewController animationTransition:animationTransitionType animationDuration:animationDuration];
+            [self animateTransitionWithAnimationOption:self.visibleViewController nextViewController:viewController animationTransition:animationTransitionType navigationActionType:MUNavigationActionTypePush animationDuration:animationDuration];
         }
     }
     else
@@ -114,25 +115,7 @@
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
     UIViewController *returnController = nil;
-   /* if( animated )
-    {
-        NSInteger index = self.viewControllers.count - 2;
-        if( index >= 0 )
-        {
-            returnController = self.visibleViewController;
-            UIViewController *prevController = self.viewControllers[index];
-            
-            [prevController.view setFrame:self.visibleViewController.view.frame];
-            [UIView transitionFromView:self.visibleViewController.view toView:prevController.view duration:_popTransitionAnimationDuration options:_popTransition completion:^(BOOL finished){
-                [super popViewControllerAnimated:NO];
-            }];
-            return returnController;
-        }
-    }
-    else
-    {
-        returnController = [super popViewControllerAnimated:NO];
-    }*/
+   
     if( animated )
     {
         returnController = [self popViewController:_popTransitionAnimationDuration animationTransitionType:_popTransition];
@@ -141,14 +124,14 @@
     {
         returnController = [super popViewControllerAnimated:animated];
     }
-
+    
     return returnController;
 }
 
 -(UIViewController *)popViewController:(UIViewController *)viewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)customAnimationBlock
 {
     UIViewController *returnController = nil;
-    customAnimationBlock(self.visibleViewController, viewController, animationDuration);
+    customAnimationBlock(self.visibleViewController, viewController, MUNavigationActionTypePop, animationDuration);
     return returnController;
 }
 
@@ -171,15 +154,15 @@
             if( animationTransitionType > MUViewAnimationTransitionTypeCustom )
             {
                 MUCustomAnimationBlock animationBlock = _customAnimationDictionary[@(animationTransitionType)];
-                [self animatePopTransitionWithAnimationOption:self.visibleViewController nextViewController:prevController animationDuration:animationDuration customAnimationBlock:animationBlock];
+                animationBlock(self.visibleViewController, prevController, MUNavigationActionTypePop, animationDuration);
             }
             else if ( animationTransitionType == MUViewAnimationTransitionTypeCustom && _customPopTransitionBlock != nil)
             {
-                [self animatePopTransitionWithAnimationOption:self.visibleViewController nextViewController:prevController animationDuration:animationDuration customAnimationBlock:_customPopTransitionBlock];
+                _customPopTransitionBlock(self.visibleViewController, prevController, MUNavigationActionTypePop, animationDuration);
             }
             else
             {
-                [self animatePopTransitionWithAnimationOption:self.visibleViewController nextViewController:prevController animationTransition:animationTransitionType animationDuration:animationDuration];
+                [self animateTransitionWithAnimationOption:self.visibleViewController nextViewController:prevController animationTransition:animationTransitionType navigationActionType:MUNavigationActionTypePop animationDuration:animationDuration];
             }
         }
     }
@@ -249,94 +232,86 @@
 }
 
 #pragma mark - private methods
--(void)animatePushTransitionWithAnimationOption:(UIViewController *)currentViewController nextViewController:(UIViewController *)nextViewController animationTransition:(MUViewAnimationTransitionType)animationTransition animationDuration:(CGFloat)animationDuration
+-(void)animateTransitionWithAnimationOption:(UIViewController *)currentViewController nextViewController:(UIViewController *)nextViewController animationTransition:(MUViewAnimationTransitionType)animationTransition navigationActionType:(MUNavigationActionType)navigationActionType animationDuration:(CGFloat)animationDuration
 {
-    MUCustomAnimationBlock animationBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
+    MUCustomAnimationBlock animationBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {
         [nextViewController.view setFrame:currentViewController.view.frame];
         [UIView transitionFromView:currentViewController.view toView:nextViewController.view duration:animationDuration options:animationTransition completion:^(BOOL finished){
             [nextViewController.view removeFromSuperview];
-            [super pushViewController:nextViewController animated:NO];
+            if( navigationActionType == MUNavigationActionTypePush )
+            {
+                [super pushViewController:nextViewController animated:NO];
+            }
+            else if ( navigationActionType == MUNavigationActionTypePop )
+            {
+                [super popViewControllerAnimated:NO];
+            }
         }];
     };
-    animationBlock(currentViewController, nextViewController, animationDuration);
-}
-
--(void)animatePopTransitionWithAnimationOption:(UIViewController *)currentViewController nextViewController:(UIViewController *)nextViewController animationTransition:(MUViewAnimationTransitionType)animationTransition animationDuration:(CGFloat)animationDuration
-{
-    MUCustomAnimationBlock animationBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
-    {
-        [nextViewController.view setFrame:currentViewController.view.frame];
-        [UIView transitionFromView:currentViewController.view toView:nextViewController.view duration:animationDuration options:animationTransition completion:^(BOOL finished){
-            [nextViewController.view removeFromSuperview];
-            [super popViewControllerAnimated:NO];
-        }];
-        
-        /*[prevController.view setFrame:self.visibleViewController.view.frame];
-        [UIView transitionFromView:self.visibleViewController.view toView:prevController.view duration:_popTransitionAnimationDuration options:_popTransition completion:^(BOOL finished){
-            [super popViewControllerAnimated:NO];
-        }];*/
-    };
-    animationBlock(currentViewController, nextViewController, animationDuration);
-}
-
-
--(void)animatePushTransitionWithAnimationOption:(UIViewController *)currentViewController nextViewController:(UIViewController *)nextViewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)animationBlock
-{
-    animationBlock(currentViewController, nextViewController, animationDuration);
-}
-
--(void)animatePopTransitionWithAnimationOption:(UIViewController *)currentViewController nextViewController:(UIViewController *)nextViewController animationDuration:(CGFloat)animationDuration customAnimationBlock:(MUCustomAnimationBlock)animationBlock
-{
-    animationBlock(currentViewController, nextViewController, animationDuration);
+    animationBlock(currentViewController, nextViewController, navigationActionType, animationDuration);
 }
 
 
 -(void)setUpCustomAnimationBlocks
 {
-    MUCustomAnimationBlock customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
+    
+    MUCustomAnimationBlock customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {
         nextViewController.view.alpha = 0;
-        [currentViewController.view addSubview:nextViewController.view];
-        [nextViewController.view setFrame:currentViewController.view.frame];
-        MUCustomAnimationBlock animationBlock = ^void (UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
-        {
-            nextViewController.view.alpha = 1;
-            
-        };
         
-        MUAnimationCompletionBlock completionBlock = ^(BOOL finished){
-            [nextViewController.view removeFromSuperview];
-            //[super pushViewController:nextViewController animated:NO];
-            [super popViewControllerAnimated:NO];
-        };
-        
-        [UIView animateWithDuration:animationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            animationBlock(currentViewController, nextViewController, animationDuration);
-            
-        }
-                         completion:completionBlock];
+        CGRect adjFrame = currentViewController.view.frame;
+        adjFrame.origin.y = 64;
+        [nextViewController.view setFrame:adjFrame];
+        nextViewController.view.alpha = 0;
+        [self.view addSubview:nextViewController.view];
+        [UIView transitionWithView:[self view]
+                          duration:animationDuration
+                           options:UIViewAnimationOptionCurveEaseInOut
+                        animations:^{
+                            nextViewController.view.alpha = 1;
+                        }
+                        completion:^(BOOL finished){
+                            [nextViewController.view removeFromSuperview];
+                            [self pushViewController:nextViewController animated:NO];
+                        }
+         ];
     };
     _customAnimationDictionary[@(MUViewAnimationTransitionTypeCustomFadeIn)] = customBlock;
     
-   
-    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
+    
+    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {
         [currentViewController.view showOrigamiTransitionWith:nextViewController.view NumberOfFolds:3 Duration:animationDuration Direction:XYOrigamiDirectionFromLeft completion:^(BOOL finished) {
             [nextViewController.view removeFromSuperview];
             [currentViewController.view setTransitionState:XYOrigamiTransitionStateIdle];
-            [super pushViewController:nextViewController animated:NO];
+            
+            if( navigationActionType == MUNavigationActionTypePush )
+            {
+                [super pushViewController:nextViewController animated:NO];
+            }
+            else if ( navigationActionType == MUNavigationActionTypePop )
+            {
+                [super popViewControllerAnimated:NO];
+            }
         }];
     };
     
     _customAnimationDictionary[@(MUViewAnimationTransitionTypeShowOrigamiFromLeft)] = customBlock;
     
-    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, CGFloat animationDuration)
+    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {
         [currentViewController.view showOrigamiTransitionWith:nextViewController.view NumberOfFolds:3 Duration:animationDuration Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
             [nextViewController.view removeFromSuperview];
             [currentViewController.view setTransitionState:XYOrigamiTransitionStateIdle];
-            [super pushViewController:nextViewController animated:NO];
+            if( navigationActionType == MUNavigationActionTypePush )
+            {
+                [super pushViewController:nextViewController animated:NO];
+            }
+            else if ( navigationActionType == MUNavigationActionTypePop )
+            {
+                [super popViewControllerAnimated:NO];
+            }
         }];
     };
     
