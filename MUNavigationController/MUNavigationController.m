@@ -186,7 +186,8 @@
 
 -(NSArray *)getAnimationTypeStrings
 {
-    return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft", @"ShowOrigamiFromRight"];
+    //return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft", @"ShowOrigamiFromRight"];
+    return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft"];
 }
 
 -(NSString *)getAnimationTranstionNameFromType:(MUViewAnimationTransitionType)transitionType
@@ -299,7 +300,7 @@
     
     _customAnimationDictionary[@(MUViewAnimationTransitionTypeShowOrigamiFromLeft)] = customBlock;
     
-    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
+  /*  customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {
         [currentViewController.view showOrigamiTransitionWith:nextViewController.view NumberOfFolds:3 Duration:animationDuration Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
             [nextViewController.view removeFromSuperview];
@@ -315,7 +316,7 @@
         }];
     };
     
-    _customAnimationDictionary[@(MUViewAnimationTransitionTypeShowOrigamiFromRight)] = customBlock;
+    _customAnimationDictionary[@(MUViewAnimationTransitionTypeShowOrigamiFromRight)] = customBlock;*/
     
 }
 
