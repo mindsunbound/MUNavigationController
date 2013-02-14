@@ -7,6 +7,8 @@
 //
 
 #import "MUNavigationController.h"
+#import "MPFoldTransition.h"
+#import "MPAnimation.h"
 
 @interface MUNavigationController ()
 
@@ -187,7 +189,7 @@
 -(NSArray *)getAnimationTypeStrings
 {
     //return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft", @"ShowOrigamiFromRight"];
-    return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft"];
+    return @[@"Default", @"FlipFromLeft", @"FlipFromRight", @"CurlUp", @"CurlDown", @"CrossDissolve", @"FlipFromTop", @"FlipFromBottom", @"Custom", @"CustomFadeIn", @"ShowOrigamiFromLeft", @"Fold", @"Unfold"];
 }
 
 -(NSString *)getAnimationTranstionNameFromType:(MUViewAnimationTransitionType)transitionType
@@ -224,6 +226,12 @@
             break;
         case MUViewAnimationTransitionTypeFlipFromTop:
             returnString = @"MUViewAnimationTransitionTypeFlipFromTop";
+            break;
+        case MUViewAnimationTransitionTypeFold:
+            returnString = @"MUViewAnimationTransitionTypeFold";
+            break;
+        case MUViewAnimationTransitionTypeUnfold:
+            returnString = @"MUViewAnimationTransitionTypeUnfold";
             break;
         default:
             returnString = nil;
@@ -299,6 +307,36 @@
     };
     
     _customAnimationDictionary[@(MUViewAnimationTransitionTypeShowOrigamiFromLeft)] = customBlock;
+    
+    //add fold transitions
+    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
+    {
+        if( navigationActionType == MUNavigationActionTypePush )
+        {
+            [self pushViewController:nextViewController foldStyle:MPFoldStyleCubic];
+        }
+        else if ( navigationActionType == MUNavigationActionTypePop )
+        {
+            [self popToRootViewControllerWithFoldStyle:MPFoldStyleUnfold];
+        }        
+    };
+    
+    _customAnimationDictionary[@(MUViewAnimationTransitionTypeFold)] = customBlock;
+
+    customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
+    {
+        if( navigationActionType == MUNavigationActionTypePush )
+        {
+            [self pushViewController:nextViewController foldStyle:MPFoldStyleCubic];
+        }
+        else if ( navigationActionType == MUNavigationActionTypePop )
+        {
+            [self popToRootViewControllerWithFoldStyle:MPFoldStyleUnfold];
+        }
+    };
+    
+    _customAnimationDictionary[@(MUViewAnimationTransitionTypeUnfold)] = customBlock;
+    
     
   /*  customBlock = ^void(UIViewController *currentViewController, UIViewController *nextViewController, MUNavigationActionType navigationActionType, CGFloat animationDuration)
     {

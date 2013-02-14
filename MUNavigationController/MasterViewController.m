@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     _muNavigationController = (MUNavigationController *)self.navigationController;
+    _muNavigationController.popTransition = MUViewAnimationTransitionTypeUnfold;
     _animationTypeArray = [_muNavigationController getAnimationTypeStrings];
     
     

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0818BF16CCB3EE00EDA45F /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818AA16CCB3EE00EDA45F /* MPAnimation.m */; };
+		8C0818C016CCB3EE00EDA45F /* MPFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818AD16CCB3EE00EDA45F /* MPFlipTransition.m */; };
+		8C0818C116CCB3EE00EDA45F /* MPFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818B016CCB3EE00EDA45F /* MPFoldTransition.m */; };
+		8C0818C216CCB3EE00EDA45F /* MPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818B216CCB3EE00EDA45F /* MPTransition.m */; };
+		8C0818C316CCB3EE00EDA45F /* MPFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818B616CCB3EE00EDA45F /* MPFlipSegue.m */; };
+		8C0818C416CCB3EE00EDA45F /* MPFoldModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818B816CCB3EE00EDA45F /* MPFoldModalSegue.m */; };
+		8C0818C516CCB3EE00EDA45F /* MPFoldNavPopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818BA16CCB3EE00EDA45F /* MPFoldNavPopSegue.m */; };
+		8C0818C616CCB3EE00EDA45F /* MPFoldNavPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818BC16CCB3EE00EDA45F /* MPFoldNavPushSegue.m */; };
+		8C0818C716CCB3EE00EDA45F /* MPFoldSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0818BE16CCB3EE00EDA45F /* MPFoldSegue.m */; };
 		8C2A805B1604F96600DBF0DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A805A1604F96600DBF0DB /* UIKit.framework */; };
 		8C2A805D1604F96600DBF0DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A805C1604F96600DBF0DB /* Foundation.framework */; };
 		8C2A805F1604F96600DBF0DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A805E1604F96600DBF0DB /* CoreGraphics.framework */; };
@@ -26,6 +35,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0818A916CCB3EE00EDA45F /* MPAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAnimation.h; sourceTree = "<group>"; };
+		8C0818AA16CCB3EE00EDA45F /* MPAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAnimation.m; sourceTree = "<group>"; };
+		8C0818AB16CCB3EE00EDA45F /* MPFlipEnumerations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFlipEnumerations.h; sourceTree = "<group>"; };
+		8C0818AC16CCB3EE00EDA45F /* MPFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFlipTransition.h; sourceTree = "<group>"; };
+		8C0818AD16CCB3EE00EDA45F /* MPFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFlipTransition.m; sourceTree = "<group>"; };
+		8C0818AE16CCB3EE00EDA45F /* MPFoldEnumerations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldEnumerations.h; sourceTree = "<group>"; };
+		8C0818AF16CCB3EE00EDA45F /* MPFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldTransition.h; sourceTree = "<group>"; };
+		8C0818B016CCB3EE00EDA45F /* MPFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFoldTransition.m; sourceTree = "<group>"; };
+		8C0818B116CCB3EE00EDA45F /* MPTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTransition.h; sourceTree = "<group>"; };
+		8C0818B216CCB3EE00EDA45F /* MPTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTransition.m; sourceTree = "<group>"; };
+		8C0818B316CCB3EE00EDA45F /* MPTransitionEnumerations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTransitionEnumerations.h; sourceTree = "<group>"; };
+		8C0818B516CCB3EE00EDA45F /* MPFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFlipSegue.h; sourceTree = "<group>"; };
+		8C0818B616CCB3EE00EDA45F /* MPFlipSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFlipSegue.m; sourceTree = "<group>"; };
+		8C0818B716CCB3EE00EDA45F /* MPFoldModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldModalSegue.h; sourceTree = "<group>"; };
+		8C0818B816CCB3EE00EDA45F /* MPFoldModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFoldModalSegue.m; sourceTree = "<group>"; };
+		8C0818B916CCB3EE00EDA45F /* MPFoldNavPopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldNavPopSegue.h; sourceTree = "<group>"; };
+		8C0818BA16CCB3EE00EDA45F /* MPFoldNavPopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFoldNavPopSegue.m; sourceTree = "<group>"; };
+		8C0818BB16CCB3EE00EDA45F /* MPFoldNavPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldNavPushSegue.h; sourceTree = "<group>"; };
+		8C0818BC16CCB3EE00EDA45F /* MPFoldNavPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFoldNavPushSegue.m; sourceTree = "<group>"; };
+		8C0818BD16CCB3EE00EDA45F /* MPFoldSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFoldSegue.h; sourceTree = "<group>"; };
+		8C0818BE16CCB3EE00EDA45F /* MPFoldSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFoldSegue.m; sourceTree = "<group>"; };
 		8C2A80561604F96600DBF0DB /* MUNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A805A1604F96600DBF0DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8C2A805C1604F96600DBF0DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,10 +98,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0818A816CCB3EE00EDA45F /* MPFoldTransition */ = {
+			isa = PBXGroup;
+			children = (
+				8C0818A916CCB3EE00EDA45F /* MPAnimation.h */,
+				8C0818AA16CCB3EE00EDA45F /* MPAnimation.m */,
+				8C0818AB16CCB3EE00EDA45F /* MPFlipEnumerations.h */,
+				8C0818AC16CCB3EE00EDA45F /* MPFlipTransition.h */,
+				8C0818AD16CCB3EE00EDA45F /* MPFlipTransition.m */,
+				8C0818AE16CCB3EE00EDA45F /* MPFoldEnumerations.h */,
+				8C0818AF16CCB3EE00EDA45F /* MPFoldTransition.h */,
+				8C0818B016CCB3EE00EDA45F /* MPFoldTransition.m */,
+				8C0818B116CCB3EE00EDA45F /* MPTransition.h */,
+				8C0818B216CCB3EE00EDA45F /* MPTransition.m */,
+				8C0818B316CCB3EE00EDA45F /* MPTransitionEnumerations.h */,
+				8C0818B416CCB3EE00EDA45F /* Segues */,
+			);
+			path = MPFoldTransition;
+			sourceTree = "<group>";
+		};
+		8C0818B416CCB3EE00EDA45F /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				8C0818B516CCB3EE00EDA45F /* MPFlipSegue.h */,
+				8C0818B616CCB3EE00EDA45F /* MPFlipSegue.m */,
+				8C0818B716CCB3EE00EDA45F /* MPFoldModalSegue.h */,
+				8C0818B816CCB3EE00EDA45F /* MPFoldModalSegue.m */,
+				8C0818B916CCB3EE00EDA45F /* MPFoldNavPopSegue.h */,
+				8C0818BA16CCB3EE00EDA45F /* MPFoldNavPopSegue.m */,
+				8C0818BB16CCB3EE00EDA45F /* MPFoldNavPushSegue.h */,
+				8C0818BC16CCB3EE00EDA45F /* MPFoldNavPushSegue.m */,
+				8C0818BD16CCB3EE00EDA45F /* MPFoldSegue.h */,
+				8C0818BE16CCB3EE00EDA45F /* MPFoldSegue.m */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
 		8C2A804B1604F96600DBF0DB = {
 			isa = PBXGroup;
 			children = (
-				8C974DB61605650E00BCC1EF /* QuartzCore.framework */,
 				8C2A80601604F96600DBF0DB /* MUNavigationController */,
 				8C2A80591604F96600DBF0DB /* Frameworks */,
 				8C2A80571604F96600DBF0DB /* Products */,
@@ -89,6 +154,7 @@
 		8C2A80591604F96600DBF0DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C974DB61605650E00BCC1EF /* QuartzCore.framework */,
 				8C2A805A1604F96600DBF0DB /* UIKit.framework */,
 				8C2A805C1604F96600DBF0DB /* Foundation.framework */,
 				8C2A805E1604F96600DBF0DB /* CoreGraphics.framework */,
@@ -99,6 +165,7 @@
 		8C2A80601604F96600DBF0DB /* MUNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				8C0818A816CCB3EE00EDA45F /* MPFoldTransition */,
 				8C974DB3160561EA00BCC1EF /* UIView+Origami.h */,
 				8C974DB2160561EA00BCC1EF /* UIView+Origami.m */,
 				8C2A80801604F9CB00DBF0DB /* AnimationListCell.h */,
@@ -204,6 +271,15 @@
 				8C2A80841604F9CB00DBF0DB /* AnimationListCell.m in Sources */,
 				8C2A80851604F9CB00DBF0DB /* MUNavigationController.m in Sources */,
 				8C974DB4160561EA00BCC1EF /* UIView+Origami.m in Sources */,
+				8C0818BF16CCB3EE00EDA45F /* MPAnimation.m in Sources */,
+				8C0818C016CCB3EE00EDA45F /* MPFlipTransition.m in Sources */,
+				8C0818C116CCB3EE00EDA45F /* MPFoldTransition.m in Sources */,
+				8C0818C216CCB3EE00EDA45F /* MPTransition.m in Sources */,
+				8C0818C316CCB3EE00EDA45F /* MPFlipSegue.m in Sources */,
+				8C0818C416CCB3EE00EDA45F /* MPFoldModalSegue.m in Sources */,
+				8C0818C516CCB3EE00EDA45F /* MPFoldNavPopSegue.m in Sources */,
+				8C0818C616CCB3EE00EDA45F /* MPFoldNavPushSegue.m in Sources */,
+				8C0818C716CCB3EE00EDA45F /* MPFoldSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

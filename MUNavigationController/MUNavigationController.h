@@ -20,6 +20,8 @@ typedef NS_OPTIONS(NSInteger, MUViewAnimationTransitionType) {
     MUViewAnimationTransitionTypeCustom              = 8 << 20,
     MUViewAnimationTransitionTypeCustomFadeIn        = 9 << 20,
     MUViewAnimationTransitionTypeShowOrigamiFromLeft = 10 << 20,
+    MUViewAnimationTransitionTypeFold                = 11 << 20,
+    MUViewAnimationTransitionTypeUnfold              = 12 << 20,
    // MUViewAnimationTransitionTypeShowOrigamiFromRight= 11 << 20,
 };
 
